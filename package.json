@@ -1,0 +1,25 @@
+{
+  "name": "playwright_template",
+  "version": "1.0.0",
+  "description": "Playwright demo project to be used as template",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://Marc-AC-93@github.com/Marc-AC-93/Playwright-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marc-AC-93/Playwright-template/issues"
+  },
+  "homepage": "https://github.com/Marc-AC-93/Playwright-template#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.36.0",
+    "allure-playwright": "^2.4.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

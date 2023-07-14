@@ -28,14 +28,20 @@ git clone git@github.com:Marc-AC-93/Playwright-template.git
 # create your local env files
 # src/configs/local.config.ts
 # src/configs/env/local/local.env
+npm install
 
 ```
 
 ## Test runners
-- **Locally:** without using docker process
+- **Locally:** run in local tests in local
 ```
-bash playwrightLauncher.sh [param]
-- param: values allowed
+npm run [config]
+- config: local|stage|prod
+```
+- **Docker:** For CI
+```
+./runDockerCompose.sh [config]
+- config: local|stage|prod
 ```
 
 

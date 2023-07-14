@@ -33,7 +33,7 @@ npm install
 ```
 
 ## Test runners
-- **Locally:** run in local tests in local
+- **Locally:** 
 ```
 npm run [config]
 - config: local|stage|prod
@@ -45,12 +45,12 @@ npm run [config]
 ```
 
 ## Test reports
-- **Playwright:**
+- **Playwright:** Technical report for QA/DEVs
 ```
 npm run report
 ```
 
-- **Allure:**
+- **Allure:** Business report for PO/PM or any project stakeholder
 ```
 npm run allure
 ```

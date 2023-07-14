@@ -44,6 +44,16 @@ npm run [config]
 - config: local|stage|prod
 ```
 
+## Test reports
+- **Playwright:**
+```
+npm run report
+```
+
+- **Allure:**
+```
+npm run allure
+```
 
 ## References
 

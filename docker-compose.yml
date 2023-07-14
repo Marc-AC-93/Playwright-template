@@ -1,0 +1,11 @@
+# Version of docker compose
+version: "3.9"
+
+services:
+  playwright:
+    image: playwright
+    container_name: playwright
+    tty: true
+    build:
+      context: .
+      dockerfile: dockerfile

@@ -23,13 +23,15 @@ Automate end-to-end test scenarios.
 ## Setup
 
 ```
+*npm installed*
+*docker installed*
 cd your_desired_folder
 git clone git@github.com:Marc-AC-93/Playwright-template.git
+npm install -g allure-commandline --save-dev
 # create your local env files
 # src/configs/local.config.ts
 # src/configs/env/local/local.env
 npm install
-
 ```
 
 ## Test runners

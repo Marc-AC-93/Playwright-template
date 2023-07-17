@@ -4,6 +4,9 @@
   "description": "Playwright demo project to be used as template",
   "main": "index.js",
   "scripts": {
+    "docker_local": "docker compose -f docker-compose.yml up -d --build && docker exec playwright npx playwright test -c src/config/local.config.ts",
+    "docker_stage": "docker compose -f docker-compose.yml up -d --build && docker exec playwright npx playwright test -c src/config/stage.config.ts",
+    "docker_prod": "docker compose -f docker-compose.yml up -d --build && docker exec playwright npx playwright test -c src/config/prod.config.ts",
     "local": "npx playwright test -c src/config/local.config.ts",
     "stage": "npx playwright test -c src/config/stage.config.ts",
     "prod": "npx playwright test -c src/config/prod.config.ts",

@@ -10,14 +10,17 @@ export class PageA {
 
     async given(): Promise<void> {
         await test.step('Given', async () => {
+            this.testBase.createLog("Given");
         })
     }
     async when(): Promise<void> {
         await test.step('When', async () => {
+            this.testBase.createLog("When");
         })
     }
     async then(): Promise<void> {
         await test.step('Then', async () => {
+            this.testBase.createLog("Then");
         })
     }
 }

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import {test, Page, Locator, BrowserContext, expect, APIRequestContext} from '@playwright/test';
+import {test, Page, Locator, BrowserContext, expect, APIRequestContext, TestInfo} from '@playwright/test';
 import {GlobalConfig} from "./data/globalConfig/globalTestConfig";
 
 
@@ -8,12 +8,18 @@ export class TestBase {
     readonly context: BrowserContext;
     readonly request: APIRequestContext;
     readonly globalConfig: GlobalConfig;
+    readonly worker: TestInfo;
 
-    constructor(page: Page, context: BrowserContext, request: APIRequestContext){
+    constructor(page: Page, context: BrowserContext, request: APIRequestContext, worker: TestInfo){
         this.page = page;
         this.context = context;
         this.request = request;
         this.globalConfig = new GlobalConfig();
+        this.worker = worker;
+    }
+
+    async createLog(text: string){
+        console.log(`[${this.worker.project.name}] ${text}`);
     }
 
     private async openNewTab(element: Locator): Promise<void> {

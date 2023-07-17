@@ -14,3 +14,6 @@ docker exec playwright npm run $config
 docker cp playwright:/playwright/test-results .
 docker cp playwright:/playwright/playwright-report .
 docker cp playwright:/playwright/allure-results .
+docker exec playwright rm -rf playwright-report/
+docker exec playwright rm -rf test-results/
+docker exec playwright rm -rf allure-results/

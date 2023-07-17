@@ -7,11 +7,17 @@ test.describe( "Feature A", ()=>{
         { lang: Language.Es}]
 
     scenarios.forEach( testData => {
-        test(`Verify feature A in language '${testData.lang}'`,
+        test(`Verify feature A in language '${testData.lang}' @lang`,
             async ({home, pageA}) => {
             await pageA.given();
             await pageA.when();
             await pageA.then();
             });
     });
+    test(`Verify feature A without language @no-lang`,
+        async ({home, pageA}) => {
+            await pageA.given();
+            await pageA.when();
+            await pageA.then();
+        });
 });

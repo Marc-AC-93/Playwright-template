@@ -22,19 +22,25 @@ Automate end-to-end test scenarios.
 
 ## Setup
 
-```
-*npm installed*
-*docker installed*
-cd your_desired_folder
-git clone git@github.com:Marc-AC-93/Playwright-template.git
-npm install -g allure-commandline --save-dev
-# create your local env files
-# src/configs/local.config.ts
-# src/configs/env/local/local.env
-npm install
-```
+### Preconditions
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [docker desktop](https://www.docker.com/products/docker-desktop/)
+
+
+### Steps to install the repository
+
+1. Open the terminal
+2. `cd <your_desired_folder>`
+3. `git clone git@github.com:Marc-AC-93/Playwright-template.git`
+4. Create your local env files:
+   - src/configs/local.config.ts
+   - src/configs/env/local/local.env
+5. `npx playwright install`
+6. Install allure:
+   - `npm install -g allure-commandline --save-dev`
 
 ## Test runners
+
 - **Locally:** 
 ```
 npm run [config]
@@ -46,7 +52,23 @@ npm run docker_[config]
 - config: local|stage|prod
 ```
 
+### Test execution filters
+
+Filter test using grep `npm run stage -- <test_parameter>`
+
+Test parameters:
+
+- show browsers: `--headed`
+- filter by project: `--project=safari`
+- sequential tests: `--workers=1`
+- invert filter: `--grep-invert '@parallel'`
+- regular expressions: `-g '(?=.*@parallel)((?=.*@regression))'`
+- combined regular expressions: `-g '(?=.*@parallel)((?=.*@regression)|(?=.*@$param))'`
+- sequential test with filters: `--workers=1 --project=safari -g '@param|@regression' --grep-invert '@parallel'`
+
+
 ## Test reports
+
 - **Playwright:** Technical report for QA/DEVs
 ```
 npm run report

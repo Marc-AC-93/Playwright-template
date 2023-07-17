@@ -9,3 +9,7 @@ services:
     build:
       context: .
       dockerfile: dockerfile
+    volumes:
+      - ./test-results:/playwright/test-results
+      - ./playwright-report:/playwright/playwright-report
+      - ./allure-results:/playwright/allure-results

@@ -40,7 +40,7 @@ npm run [config]
 ```
 - **Docker:** For CI
 ```
-./runDockerCompose.sh [config]
+npm run docker_[config]
 - config: local|stage|prod
 ```
 

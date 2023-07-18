@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {test, Page, Locator, BrowserContext, expect, APIRequestContext, TestInfo} from '@playwright/test';
 import {GlobalConfig} from "./data/globalConfig/globalTestConfig";
 
@@ -8,29 +7,34 @@ export class TestBase {
     readonly context: BrowserContext;
     readonly request: APIRequestContext;
     readonly globalConfig: GlobalConfig;
-    readonly worker: TestInfo;
+    readonly workerInfo: TestInfo;
 
     constructor(page: Page, context: BrowserContext, request: APIRequestContext, worker: TestInfo){
         this.page = page;
         this.context = context;
         this.request = request;
         this.globalConfig = new GlobalConfig();
-        this.worker = worker;
+        this.workerInfo = worker;
     }
 
     async createLog(text: string){
-        console.log(`[${this.worker.project.name}] ${text}`);
+        console.log(`[${this.workerInfo.project.name}] ${text}`);
     }
 
-    private async openNewTab(element: Locator): Promise<void> {
-        await test.step(`When user clicks on element ${element} to open a new tab`, async () => {
-            let pagePromise;
-            let newPage: Page;
+    async getNewTab(element: Locator): Promise<Page> {
+        let pagePromise;
+        let newPage: Page;
 
-            pagePromise = this.context.waitForEvent('page');
-            await element.click();
-            newPage = await pagePromise;
-            await newPage.content();
+        pagePromise = this.context.waitForEvent('page');
+        await element.click();
+        newPage = await pagePromise;
+        await newPage.content();
+        return newPage;
+    }
+
+    async openNewTab(element: Locator): Promise<void> {
+        await test.step(`When user clicks on element ${element} to open a new tab`, async () => {
+            await this.getNewTab(element);
         });
     }
 
@@ -48,6 +52,7 @@ export class TestBase {
             await element.click();
             return  await responsePromise;
         })
+        return {};
     }
 }
 

@@ -46,9 +46,17 @@ Automate end-to-end test scenarios.
 npm run [config]
 - config: local|stage|prod
 ```
-- **Docker:** For CI
+
+- **Docker:** local
 ```
-npm run docker_[config]
+npm run docker:build
+npm run docker:run_[config]
+- config: local|stage|prod
+```
+
+- **Docker:** CI
+```
+./runPlaywrightDocker [config]
 - config: local|stage|prod
 ```
 

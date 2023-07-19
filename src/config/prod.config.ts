@@ -14,9 +14,7 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     reporter: [['html', { open: 'never' }], ['line'],
         ["allure-playwright",
-            {detail: false,
-                suiteTitle: true,
-                environmentInfo: {
+            {environmentInfo: {
                     NODE_VERSION: process.version,
                     OS: process.platform,
                     ENV: process.env.ENV,

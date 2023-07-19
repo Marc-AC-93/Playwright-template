@@ -14,15 +14,17 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     reporter: [['html', { open: 'never' }], ['line'],
         ["allure-playwright",
-            {detail: false,
-                suiteTitle: true,
+            {
                 environmentInfo: {
-                    NODE_VERSION: process.version,
-                    OS: process.platform,
-                    ENV: process.env.ENV,
-                    BACK_END: process.env.BACK_END_URL,
-                    FRONT_END: process.env.FRONT_END_URL,
-                }}]],
+                NODE_VERSION: process.version,
+                OS: process.platform,
+                ENV: process.env.ENV,
+                BACK_END: process.env.BACK_END_URL,
+                FRONT_END: process.env.FRONT_END_URL,
+            }
+            ,
+
+            }]],
     globalSetup: require.resolve('./testSetup/globalSetup'),
     globalTeardown: require.resolve('./testSetup/globalTearDown'),
 
@@ -42,11 +44,11 @@ export default defineConfig({
             use: { ...devices['Desktop Safari'] },
         },
         {
-            name: 'MobileChrome',
+            name: 'mobileChrome',
             use: { ...devices['Pixel 5'] },
         },
         {
-            name: 'MobileSafari',
+            name: 'mobileSafari',
             use: { ...devices['iPhone 13'] },
         },
     ],

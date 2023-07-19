@@ -42,11 +42,11 @@ export default defineConfig({
             use: { ...devices['Desktop Safari'] },
         },
         {
-            name: 'MobileChrome',
+            name: 'mobileChrome',
             use: { ...devices['Pixel 5'] },
         },
         {
-            name: 'MobileSafari',
+            name: 'mobileSafari',
             use: { ...devices['iPhone 13'] },
         },
     ],

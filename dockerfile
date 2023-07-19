@@ -10,5 +10,6 @@ RUN apt-get update
 
 COPY package.json /playwright/package.json
 RUN npm install
+RUN npx playwright install
 
 COPY src/ /playwright/src/

@@ -2,7 +2,7 @@
 import {FullConfig} from '@playwright/test';
 
 async function globalSetup(config: FullConfig) {
-    console.log('[globalSetup] Starting test execution')
+    console.log(`[${config.configFile}] Test Setup`)
 }
 
 export default globalSetup;

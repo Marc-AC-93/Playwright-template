@@ -1,7 +1,7 @@
 import {EnvType} from "./envType";
 
-function checkTestConfig(env: string|undefined) {
-    if(env === '' || env === undefined){
+function checkTestConfig(env: string|undefined|null) {
+    if( !env || env === ''){
         throw new Error(`[Error] ENV: '${env}' cannot be undefined`);
     }
     if( !(Object.values(EnvType).toString().includes(env)) ){

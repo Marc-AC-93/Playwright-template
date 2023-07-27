@@ -14,10 +14,4 @@ test.describe( "Feature A", ()=>{
             await pageA.then();
             });
     });
-    test(`Verify feature A without language @no-lang`,
-        async ({home, pageA}) => {
-            await pageA.given();
-            await pageA.when();
-            await pageA.then();
-        });
 });

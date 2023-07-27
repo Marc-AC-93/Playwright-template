@@ -2,19 +2,15 @@ import {test, Page, Locator, BrowserContext, expect, APIRequestContext, TestInfo
 import {GlobalConfig} from "./data/globalConfig/globalTestConfig";
 
 
-export class TestBase {
-    readonly page: Page;
-    readonly context: BrowserContext;
-    readonly request: APIRequestContext;
-    readonly globalConfig: GlobalConfig;
-    readonly workerInfo: TestInfo;
-
-    constructor(page: Page, context: BrowserContext, request: APIRequestContext, worker: TestInfo){
-        this.page = page;
-        this.context = context;
-        this.request = request;
-        this.globalConfig = new GlobalConfig();
-        this.workerInfo = worker;
+export class TestBase extends GlobalConfig{
+    constructor(
+        readonly page: Page,
+        readonly context: BrowserContext,
+        readonly request: APIRequestContext,
+        readonly workerInfo: TestInfo,
+        )
+    {
+        super()
     }
 
     async createLog(text: string){

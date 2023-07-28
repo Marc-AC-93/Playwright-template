@@ -1,11 +1,11 @@
 import {EnvType} from "./envType";
 
 
-export class GlobalConfig {
+export abstract class GlobalConfig {
     public ENV: string = process.env.ENV ? process.env.ENV.toLowerCase() : '';
     public FRONT_END_URL: string = process.env.FRONT_END_URL ? process.env.FRONT_END_URL.toLowerCase() : '';
     public BACK_END_URL: string = process.env.BACK_END_URL ? process.env.BACK_END_URL.toLowerCase() : '';
-    constructor(){
+    protected constructor(){
         this.checkTestConfig(this.ENV);
     }
 

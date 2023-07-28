@@ -1,12 +1,10 @@
 import {TestBase, test, Page} from "../testBase";
 
 export class Home {
-    private testBase: TestBase;
-    private page: Page;
 
-    constructor(testBase: TestBase) {
-        this.testBase = testBase;
-        this.page = testBase.page;
+    constructor(
+        readonly testBase: TestBase,
+        private page: Page = testBase.page) {
     }
 
     async navigateToHomelPage(): Promise<void> {

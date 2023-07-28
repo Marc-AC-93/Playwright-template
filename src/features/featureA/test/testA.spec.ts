@@ -9,8 +9,8 @@ test.describe( "Feature A", ()=>{
     scenarios.forEach( testData => {
         test(`Verify feature A in language '${testData.lang}' @lang`,
             async ({home, pageA}) => {
-            await pageA.given();
-            await pageA.when();
+            await pageA.givenAcceptsCookies();
+            await pageA.whenUserSearchText('QA');
             await pageA.then();
             });
     });

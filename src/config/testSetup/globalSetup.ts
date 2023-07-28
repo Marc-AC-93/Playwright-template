@@ -2,7 +2,10 @@
 import {FullConfig} from '@playwright/test';
 
 async function globalSetup(config: FullConfig) {
-    console.log('[globalSetup] Starting test execution')
+    const fileNameIndex: number = config.configFile?.lastIndexOf('/') ?? 0;
+    const fileName: string | undefined = config.configFile?.substring(fileNameIndex +1)
+
+    console.log(`[${fileName}] Test Setup`)
 }
 
 export default globalSetup;

@@ -1,26 +1,26 @@
-import {TestBase, test} from "../../../common/testBase";
+import {TestBase, test, Page, Locator, expect} from "../../../common/testBase";
 
 export class PageA {
-    //common
-    private testBase: TestBase;
+    constructor(
+        readonly testBase: TestBase,
+        private page: Page = testBase.page,
+        private acceptCookiesBtn: Locator = page.locator('#L2AGLb'),
+        private searchBarInput: Locator = page.locator('//*[@name="q"]'),
+    ) {}
 
-    constructor(testBase: TestBase) {
-        this.testBase = testBase;
-    }
-
-    async given(): Promise<void> {
-        await test.step('Given', async () => {
-            this.testBase.createLog("Given");
+    async givenAcceptsCookies(): Promise<void> {
+        await test.step('Given user accepts the cookies', async () => {
+            await this.acceptCookiesBtn.click()
         })
     }
-    async when(): Promise<void> {
-        await test.step('When', async () => {
-            this.testBase.createLog("When");
+    async whenUserSearchText(text: string = 'Barcelona'): Promise<void> {
+        await test.step(`When user search for ${text}`, async () => {
+            await this.searchBarInput.type(text)
+
         })
     }
     async then(): Promise<void> {
         await test.step('Then', async () => {
-            this.testBase.createLog("Then");
         })
     }
 }

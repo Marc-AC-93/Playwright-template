@@ -35,7 +35,8 @@ Automate end-to-end test scenarios.
 4. Create your local env files:
    - src/configs/local.config.ts
    - src/configs/env/local/local.env
-5. `npx playwright install`
+5. Install playwright in local:
+   - `npm run update`
 6. Install allure:
    - `npm install -g allure-commandline --save-dev`
 
@@ -70,8 +71,8 @@ Test parameters:
 - filter by project: `--project=safari`
 - sequential tests: `--workers=1`
 - invert filter: `--grep-invert '@parallel'`
-- regular expressions: `-g '(?=.*@parallel)((?=.*@regression))'`
-- combined regular expressions: `-g '(?=.*@parallel)((?=.*@regression)|(?=.*@$param))'`
+- regular expressions: `-g "(?=.*@parallel)((?=.*@regression))"`
+- combined regular expressions: `-g "(?=.*@parallel)((?=.*@regression)|(?=.*@$param))"`
 - sequential test with filters: `--workers=1 --project=safari -g '@param|@regression' --grep-invert '@parallel'`
 
 

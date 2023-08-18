@@ -3,13 +3,13 @@ version: "3.9"
 
 services:
   playwright:
-    image: playwright
-    container_name: playwright
+    image: qa
+    container_name: playwrightDemo
     tty: true
     build:
       context: .
       dockerfile: dockerfile
     volumes:
-      - ./test-results:/playwright/test-results
-      - ./playwright-report:/playwright/playwright-report
-      - ./allure-results:/playwright/allure-results
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+      - ./allure-results:/app/allure-results

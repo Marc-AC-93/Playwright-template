@@ -36,5 +36,5 @@ fi
 
 
 if [[ ! -z $reporter ]]; then
-  npm run $reporter
+  npm run report_$reporter
 fi

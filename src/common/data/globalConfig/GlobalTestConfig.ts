@@ -1,4 +1,4 @@
-import {EnvType} from "./envType";
+import {EnvType} from "./EnvType";
 
 
 export abstract class GlobalConfig {

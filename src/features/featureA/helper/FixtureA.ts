@@ -1,9 +1,9 @@
 import {test as base} from '@playwright/test';
 import {TestBase} from "../../../common/testBase";
-import {UserData} from "../../../common/data/user/userData";
-import {RandomData} from "../../../common/utils/randomData";
-import {Home} from "../../../common/page/home";
-import {PageA} from "../page/pageA";
+import {UserData} from "../../../common/data/user/UserData";
+import {RandomData} from "../../../common/utils/RandomData";
+import {Home} from "../../../common/page/Home";
+import {PageA} from "../page/PageA";
 
 
 type MyFixtures = {

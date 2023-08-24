@@ -1,5 +1,5 @@
 import {test, Page, Locator, BrowserContext, expect, APIRequestContext, TestInfo} from '@playwright/test';
-import {GlobalConfig} from "./data/globalConfig/globalTestConfig";
+import {GlobalConfig} from "./data/globalConfig/GlobalTestConfig";
 
 
 export class TestBase extends GlobalConfig{

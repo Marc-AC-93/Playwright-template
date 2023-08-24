@@ -21,8 +21,8 @@ export default defineConfig({
                     BACK_END: process.env.BACK_END_URL,
                     FRONT_END: process.env.FRONT_END_URL,
                 }}]],
-    globalSetup: require.resolve('./testSetup/globalSetup'),
-    globalTeardown: require.resolve('./testSetup/globalTearDown'),
+    globalSetup: require.resolve('./testSetup/GlobalSetup'),
+    globalTeardown: require.resolve('./testSetup/GlobalTearDown'),
 
     use: {
         actionTimeout: 0,
@@ -46,6 +46,9 @@ export default defineConfig({
         {
             name: 'mobileSafari',
             use: { ...devices['iPhone 13'] },
+        },
+        {
+            name: 'worker',
         },
     ],
 });

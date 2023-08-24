@@ -42,23 +42,35 @@ Automate end-to-end test scenarios.
 
 ## Test runners
 
-- **Locally:** 
+### Command
 ```
-npm run [config]
-- config: local|stage|prod
-```
-
-- **Docker:** local
-```
-npm run docker:build
-npm run docker:run_[config]
-- config: local|stage|prod
+./runTests.sh [env] [config] -t [tag]
 ```
 
-- **Docker:** CI
+#### Env
 ```
-./runPlaywrightDocker [config]
-- config: local|stage|prod
+env: Environment where tests are launched
+   · local: launched directly in your local machine.
+   · docker: build test repository in docker + launch the tests in docker container.
+```
+
+#### Config
+```
+- config: Used config file to setup the test run
+   · local: using local application
+   · stage: using staging enviroenment
+   · prod: using production enviroenment
+```
+
+#### Tag
+```
+tag: any tag to filter tests (optional), if this tag is not setup all the tests will be launched.
+```
+
+#### Example
+```
+./runTests.sh docker local
+./runTests.sh docker stage -t game
 ```
 
 ### Test execution filters

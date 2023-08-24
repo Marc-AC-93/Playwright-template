@@ -1,4 +1,4 @@
-// globalSetup.ts/js
+// GlobalSetup.ts/js
 import {FullConfig} from '@playwright/test';
 
 async function globalSetup(config: FullConfig) {

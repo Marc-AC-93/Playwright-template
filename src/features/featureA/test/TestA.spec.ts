@@ -1,5 +1,5 @@
-import { test } from "../helper/fixtureA"
-import {Language} from "../../../common/data/globalConfig/language";
+import { test } from "../helper/FixtureA"
+import {Language} from "../../../common/data/globalConfig/Language";
 
 test.describe( "Feature A", ()=>{
     const scenarios = [

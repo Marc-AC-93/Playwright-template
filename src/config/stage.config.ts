@@ -25,8 +25,8 @@ export default defineConfig({
             ,
 
             }]],
-    globalSetup: require.resolve('./testSetup/globalSetup'),
-    globalTeardown: require.resolve('./testSetup/globalTearDown'),
+    globalSetup: require.resolve('./testSetup/GlobalSetup'),
+    globalTeardown: require.resolve('./testSetup/GlobalTearDown'),
 
     use: {
         actionTimeout: 0,

@@ -44,7 +44,7 @@ Automate end-to-end test scenarios.
 
 ### Command
 ```
-./runTests.sh [env] [config] -t [tag]
+./runTests.sh [env] [config] -t [tag] -p [project] -r [reporter]
 ```
 
 #### Env
@@ -62,15 +62,32 @@ env: Environment where tests are launched
    · prod: using production enviroenment
 ```
 
+#### Project
+```
+project: Optional parameter to select a project for current browser, by default if project is not defined will use all the browsers.
+   · chrome
+   · safari
+   · mobileChrome
+   · mobileSafari
+   · worker (whithout browser)
+```
+
 #### Tag
 ```
-tag: any tag to filter tests (optional), if this tag is not setup all the tests will be launched.
+tag: Optional parameter to filter test run, use any tag to select the filter desired.
+```
+
+#### Reporter
+```
+reporter: Optional parameter to open a reporter once the test run finish, if reporter is not selected won't be opened at the end of test run. 
+   · allure
+   · playwright
 ```
 
 #### Example
 ```
 ./runTests.sh docker local
-./runTests.sh docker stage -t game
+./runTests.sh docker stage -p chrome -t game -r allure
 ```
 
 ### Test execution filters

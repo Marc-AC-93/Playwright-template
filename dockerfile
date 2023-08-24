@@ -10,10 +10,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 RUN apt-get update
 
-COPY package.json /app/package.json
-
 RUN npm ci
 
-COPY src/ ./src/
+COPY /src/ ./src/
 
 RUN npx playwright install --with-deps

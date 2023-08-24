@@ -1,10 +1,11 @@
 import { test } from "../helper/GameFixtures"
-import {Language} from "../../../common/data/globalConfig/Language";
+import {Character, Role} from "../page/Character";
 
 test.describe( "Character @game", ()=>{
     test(`Verify character data`,
         async ({character}) => {
             character.editLevel = 10
+            Character.role = Role.Strike;
             character.showData()
         });
 });

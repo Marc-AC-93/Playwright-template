@@ -51,5 +51,8 @@ export default defineConfig({
             name: 'mobileSafari',
             use: { ...devices['iPhone 13'] },
         },
+        {
+            name: 'worker',
+        },
     ],
 });

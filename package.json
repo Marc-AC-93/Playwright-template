@@ -12,8 +12,8 @@
     "local": "npx playwright test -c src/config/local.config.ts",
     "stage": "npx playwright test -c src/config/stage.config.ts",
     "prod": "npx playwright test -c src/config/prod.config.ts",
-    "allure": "npx allure generate allure-results --clean  && npx allure open allure-report",
-    "playwright": "npx playwright show-report",
+    "report_allure": "npx allure generate allure-results --clean  && npx allure open allure-report",
+    "report_playwright": "npx playwright show-report",
     "clean": "rm -rf allure-report && rm -rf allure-results && rm -rf test-results && rm -rf playwright-report && rm -rf dist",
     "update": "npm install @playwright/test@latest && npx playwright install && echo '----------\nUPDATE THE DOCKER FILE WITH NEW VERSION:' && npx @playwright/test --version && echo ----------"
   },

@@ -109,12 +109,12 @@ Test parameters:
 
 - **Playwright:** Technical report for QA/DEVs
 ```
-npm run report
+npm run report_playwright
 ```
 
 - **Allure:** Business report for PO/PM or any project stakeholder
 ```
-npm run allure
+npm run report_allure
 ```
 
 ## References

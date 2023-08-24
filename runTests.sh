@@ -29,12 +29,10 @@ fi
 
 if [ $env == "docker" ]; then
   npm run docker:build
-  npm run docker:run_$config -- $option $filter
+  npm run docker:run_$config -- $worker $filter
 else
   npm run $config -- $worker $filter
 fi
-
-[[ ! -z $project ]] && worker="--project=$project" || worker=$browser
 
 
 if [[ ! -z $reporter ]]; then

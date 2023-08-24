@@ -56,7 +56,7 @@ env: Environment where tests are launched
 
 #### Config
 ```
-- config: Used config file to setup the test run
+config: Used config file to setup the test run
    · local: using local application
    · stage: using staging enviroenment
    · prod: using production enviroenment

@@ -16,7 +16,8 @@ export class Character {
     constructor(public name: string = 'Name',
                 private _hp = 100,
                 private _level = 1,
-                public job?: Job) {}
+                public job?: Job,
+                public tools: string[] = []) {}
 
     get hp(): number{
         test.step(`[Character] Get HP: ${this._hp}`, async () => {})
@@ -34,8 +35,12 @@ export class Character {
         this._level += editLevel
     }
 
+    addTool(tool: string){
+        this.tools.push(tool)
+    }
+
     showData(){
         test.step('[Character] Display data from character (see logs)', async () => {})
-        console.log(`Name: ${this.name}\nHP: ${this.hp}\nLVL: ${this.level}\nRole: ${Character.role}`)
+        console.log(`Name: ${this.name}\nHP: ${this.hp}\nLVL: ${this.level}\nRole: ${Character.role}\nTool: ${this.tools}`)
     }
 }

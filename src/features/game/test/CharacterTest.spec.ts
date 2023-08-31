@@ -6,6 +6,8 @@ test.describe( "Character @game", ()=>{
         async ({character}) => {
             character.editLevel = 10
             Character.role = Role.Knight;
+            character.addTool('armor')
+            character.addTool('belt')
             character.showData()
         });
 });

@@ -5,7 +5,7 @@ test.describe( "Character @game", ()=>{
     test(`Verify character data`,
         async ({character}) => {
             character.editLevel = 10
-            Character.role = Role.Strike;
+            Character.role = Role.Knight;
             character.showData()
         });
 });

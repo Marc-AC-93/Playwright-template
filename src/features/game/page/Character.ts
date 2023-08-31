@@ -1,8 +1,8 @@
 import {test} from "@playwright/test";
 
 export enum Role {
-    Strike = 'strike',
-    Defense =  'defense'
+    Knight = 'knight',
+    Paladin =  'paladin'
 }
 
 export enum Job {
@@ -32,10 +32,6 @@ export class Character {
         test.step(`[Character] Edit level: (Old Level) ${this._level} - (new level) ${this._level+editLevel}`,
             async () => {})
         this._level += editLevel
-    }
-
-    updateTeam(rol: Role){
-        Character.role = rol
     }
 
     showData(){

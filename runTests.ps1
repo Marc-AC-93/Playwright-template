@@ -3,15 +3,20 @@ param(
     [string]$config
 )
 
-$args = $args[2..($args.Length - 1)]
+$args = $args | ForEach-Object { $_.TrimStart('-') }
 
-foreach ($arg in $args) {
-    if ($arg -match "^-p") {
-        $project = $arg.Substring(2)
-    } elseif ($arg -match "^-t") {
-        $tag = $arg.Substring(2)
-    } elseif ($arg -match "^-r") {
-        $reporter = $arg.Substring(2)
+for ($i = 0; $i -lt $args.Count; $i++) {
+    $arg = $args[$i]
+    switch -Wildcard ($arg) {
+        "p:*" {
+            $project = $arg.Substring(2)
+        }
+        "t:*" {
+            $tag = $arg.Substring(2)
+        }
+        "r:*" {
+            $reporter = $arg.Substring(2)
+        }
     }
 }
 

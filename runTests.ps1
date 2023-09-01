@@ -15,15 +15,15 @@ foreach ($arg in $args) {
     }
 }
 
-$browser = "--project=chrome --project=safari --project=mobileChrome --project=mobileSafari"
+browser="--project=chrome --project=safari --project=mobileChrome --project=mobileSafari"
 
 if ($env -ne "local" -and $env -ne "docker") {
-    Write-Host "[Error] Rerun the script selecting a valid config:`n   · local`n   · docker"
+    Write-Host "[Error] Rerun the script selecting a valid config:`n   - local`n   - docker"
     exit 1
 }
 
 if ($config -ne "local" -and $config -ne "stage" -and $config -ne "prod") {
-    Write-Host "[Error] Rerun the script selecting a valid config:`n   · local`n   · stage`n   · prod"
+    Write-Host "[Error] Rerun the script selecting a valid config:`n   - local`n   - stage`n   - prod"
     exit 2
 }
 
@@ -39,17 +39,17 @@ if ($project -match "^(worker|chrome|mobileChrome|safari|mobileSafari)$") {
 }
 
 if ($reporter -ne $null -and $reporter -ne "allure" -and $reporter -ne "playwright") {
-    Write-Host "[Error] Rerun the script selecting a valid reporter:`n   · allure`n   · playwright"
+    Write-Host "[Error] Rerun the script selecting a valid reporter:`n   - allure`n   - playwright"
     exit 3
 }
 
 if ($env -eq "docker") {
     npm run docker:build
     $start_time = Get-Date
-    npm run "docker:run_$config" "--" $worker $filter
+    npm run docker:run_$config $worker $filter
 } else {
     $start_time = Get-Date
-    npm run $config "--" $worker $filter
+    npm run $config $worker $filter
 }
 
 $end_time = Get-Date

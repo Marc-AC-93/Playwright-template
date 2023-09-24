@@ -1,6 +1,6 @@
 import {test as base} from '@playwright/test';
 import {TestBase} from "../../../common/testBase";
-import {UserData} from "../../../common/data/user/UserData";
+import {UserData} from "../../../common/testData/user/UserData";
 import {RandomData} from "../../../common/utils/RandomData";
 import {Home} from "../../../common/page/Home";
 import {PageA} from "../page/PageA";

@@ -15,7 +15,7 @@
     "report_allure": "npx allure generate allure-results --clean  && npx allure open allure-report",
     "report_playwright": "npx playwright show-report",
     "clean": "rm -rf allure-report && rm -rf allure-results && rm -rf test-results && rm -rf playwright-report && rm -rf dist",
-    "update": "npm install @playwright/test@latest && npx playwright install && echo '----------\nUPDATE THE DOCKER FILE WITH NEW VERSION:' && npx @playwright/test --version && echo ----------"
+    "setup": "npm install @playwright/test@latest && npx playwright install && echo '--------------------\n| Playwright setup |' && echo -------------------- && npx @playwright/test --version "
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/Marc-AC-93/Playwright-template#readme",
   "devDependencies": {
-    "@playwright/test": "^1.37.1",
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.6.5",
     "allure-playwright": "^2.4.0"
   },
   "dependencies": {

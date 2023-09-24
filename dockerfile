@@ -14,4 +14,5 @@ RUN npm ci
 
 COPY /src/ ./src/
 
-RUN npx playwright install --with-deps
+RUN npx playwright install --with-deps webkit
+RUN npx playwright install --with-deps chromium

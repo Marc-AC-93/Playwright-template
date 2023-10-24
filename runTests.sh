@@ -32,7 +32,7 @@ browser="--project=chrome --project=safari --project=mobileChrome --project=mobi
 
 [[ ! $env =~ ^(local|docker)$ ]] &&  echo -e "[Error] Rerun the script selecting a valid config:\n   · local\n   · docker" && exit 1;
 [[ ! $config =~ ^(local|stage|prod)$ ]] &&  echo -e "[Error] Rerun the script selecting a valid config:\n   · local\n   · stage\n   · prod" && exit 2;
-[[ ! -z $tag ]] && filter="-g @$tag" || filter=""
+[[ ! -z $tag ]] && filter="-g (?=.*@$tag)" || filter=""
 if [[ ! -z $project ]]; then
   [[ ! $project =~ ^(worker|chrome|mobileChrome|safari|mobileSafari)$ ]] &&  echo -e "[Error] Rerun the script selecting a valid project:\n   · worker\n   · chrome\n   · mobileChrome\n   · safari\n   · mobileSafari" && exit 3;
   worker="--project=$project";

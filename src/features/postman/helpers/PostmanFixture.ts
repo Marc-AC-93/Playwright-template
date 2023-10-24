@@ -1,11 +1,13 @@
 import {test as base} from '@playwright/test';
 import {TestBase} from "../../../common/testBase";
-import {Character} from "../page/Character";
+import {PostmanApi} from "../postmanSteps/postmanApi";
+import {ApiCommon} from "../../../common/apiSteps/ApiCommon";
 
 
 type MyFixtures = {
     testBase: TestBase;
-    character: Character;
+    postmanApi: PostmanApi;
+    apiCommon: ApiCommon
 };
 
 export const test = base.extend<MyFixtures>({
@@ -14,11 +16,15 @@ export const test = base.extend<MyFixtures>({
         test.info().annotations.push({type: 'Environment', description: testBase.ENV});
         test.info().annotations.push({type: 'Front-end', description: testBase.FRONT_END_URL});
         test.info().annotations.push({type: 'Back-end', description: testBase.BACK_END_URL});
-        await use(await testBase);
+        await use(testBase);
     },
-    character: async ({ testBase }, use ) => {
-        const character = new Character();
-        await use(character);
+    postmanApi: async ({ request }, use ) => {
+        const postmanApi = new PostmanApi(request);
+        await use(postmanApi);
+    },
+    apiCommon: async ({  }, use ) => {
+        const apiCommon = new ApiCommon();
+        await use(apiCommon);
     },
 });
 export { expect } from '@playwright/test';

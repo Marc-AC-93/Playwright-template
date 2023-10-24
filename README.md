@@ -87,7 +87,7 @@ reporter: Optional parameter to open a reporter once the test run finish, if rep
 #### Example
 ```
 ./runTests.sh docker local
-./runTests.sh docker stage -p chrome -t game -r allure
+./runTests.sh docker stage -p worker -t api -r allure
 ```
 
 ### Test execution filters

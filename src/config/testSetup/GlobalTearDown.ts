@@ -2,7 +2,7 @@
 import {FullConfig} from '@playwright/test';
 
 async function globalTearDown(config: FullConfig) {
-    console.log(`[GlobalTearDown] Test TearDown`)
+    console.log(`\n[GlobalTearDown] Test TearDown`)
 }
 
 export default globalTearDown;

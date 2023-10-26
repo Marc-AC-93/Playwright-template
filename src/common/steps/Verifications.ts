@@ -1,6 +1,6 @@
 import {expect, test} from "@playwright/test";
 
-export class ApiCommon {
+export class Verifications {
     constructor() {
     }
 

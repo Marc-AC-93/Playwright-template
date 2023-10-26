@@ -1,13 +1,13 @@
 import {test as base} from '@playwright/test';
 import {TestBase} from "../../../common/testBase";
 import {PostmanApi} from "../postmanSteps/postmanApi";
-import {ApiCommon} from "../../../common/apiSteps/ApiCommon";
+import {Verifications} from "../../../common/steps/Verifications";
 
 
 type MyFixtures = {
     testBase: TestBase;
     postmanApi: PostmanApi;
-    apiCommon: ApiCommon
+    verifications: Verifications
 };
 
 export const test = base.extend<MyFixtures>({
@@ -21,9 +21,9 @@ export const test = base.extend<MyFixtures>({
         const postmanApi = new PostmanApi(testBase.request, testBase.API_URL);
         await use(postmanApi);
     },
-    apiCommon: async ({  }, use ) => {
-        const apiCommon = new ApiCommon();
-        await use(apiCommon);
+    verifications: async ({  }, use ) => {
+        const verifications = new Verifications();
+        await use(verifications);
     },
 });
 export { expect } from '@playwright/test';

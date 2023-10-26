@@ -3,8 +3,8 @@ import {EnvType} from "./EnvType";
 
 export abstract class GlobalConfig {
     readonly ENV: string = process.env.ENV ? process.env.ENV.toLowerCase() : '';
-    readonly FRONT_END_URL: string = process.env.FRONT_END_URL ? process.env.FRONT_END_URL.toLowerCase() : '';
-    readonly BACK_END_URL: string = process.env.BACK_END_URL ? process.env.BACK_END_URL.toLowerCase() : '';
+    readonly WEB_URL: string = process.env.EPOCH_CONVERTER_WEB ? process.env.EPOCH_CONVERTER_WEB.toLowerCase() : '';
+    readonly API_URL: string = process.env.POSTMAN_API ? process.env.POSTMAN_API.toLowerCase() : '';
     protected constructor(){
         this.checkTestConfig(this.ENV)
     }

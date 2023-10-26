@@ -7,6 +7,6 @@ export class RandomData {
         return formattedDateNow.toString();
     }
     public randomEmail(worker: string): string {
-        return `xxx-${worker}-${this.stringDateNow()}@gmail.com`;
+        return `test-${worker}-${this.stringDateNow()}@gmail.com`;
     }
 }

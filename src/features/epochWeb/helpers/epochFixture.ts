@@ -1,24 +1,24 @@
 import {test as base} from '@playwright/test';
 import {TestBase} from "../../../common/testBase";
-import {Character} from "../page/Character";
+import {EpochPage} from "../pages/EpochPage";
 
 
 type MyFixtures = {
     testBase: TestBase;
-    character: Character;
+    epochPage: EpochPage
 };
 
 export const test = base.extend<MyFixtures>({
     testBase: async ({ page, context, request }, use, worker ) => {
         const testBase = new TestBase(page, context, request, worker);
         test.info().annotations.push({type: 'Environment', description: testBase.ENV});
-        test.info().annotations.push({type: 'Front-end', description: testBase.FRONT_END_URL});
-        test.info().annotations.push({type: 'Back-end', description: testBase.BACK_END_URL});
-        await use(await testBase);
+        test.info().annotations.push({type: 'Epoch web', description: testBase.WEB_URL});
+        await use(testBase);
     },
-    character: async ({ testBase }, use ) => {
-        const character = new Character();
-        await use(character);
+    epochPage: async ({ testBase }, use ) => {
+        const epochPage = new EpochPage(testBase);
+        await epochPage.givenNavigatesToEpochConverterPage();
+        await use(epochPage);
     },
 });
 export { expect } from '@playwright/test';

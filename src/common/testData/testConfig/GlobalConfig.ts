@@ -2,11 +2,11 @@ import {EnvType} from "./EnvType";
 
 
 export abstract class GlobalConfig {
-    public ENV: string = process.env.ENV ? process.env.ENV.toLowerCase() : '';
-    public FRONT_END_URL: string = process.env.FRONT_END_URL ? process.env.FRONT_END_URL.toLowerCase() : '';
-    public BACK_END_URL: string = process.env.BACK_END_URL ? process.env.BACK_END_URL.toLowerCase() : '';
+    readonly ENV: string = process.env.ENV ? process.env.ENV.toLowerCase() : '';
+    readonly WEB_URL: string = process.env.EPOCH_CONVERTER_WEB ? process.env.EPOCH_CONVERTER_WEB.toLowerCase() : '';
+    readonly API_URL: string = process.env.POSTMAN_API ? process.env.POSTMAN_API.toLowerCase() : '';
     protected constructor(){
-        this.checkTestConfig(this.ENV);
+        this.checkTestConfig(this.ENV)
     }
 
     checkTestConfig(env: string|undefined|null) {

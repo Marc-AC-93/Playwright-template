@@ -4,8 +4,8 @@
   "description": "Playwright demo project to be used as template",
   "main": "index.js",
   "scripts": {
-    "docker:kill": "docker stop playwrightDemo && docker rm playwrightDemo",
-    "docker:build": "docker compose -f docker-compose.yml up -d --build",
+    "docker:kill": "bash libs/commands.sh kill",
+    "docker:build": "bash libs/commands.sh build",
     "docker:run_local": "docker exec playwrightDemo npx playwright test -c src/config/local.config.ts",
     "docker:run_stage": "docker exec playwrightDemo npx playwright test -c src/config/stage.config.ts",
     "docker:run_prod": "docker exec playwrightDemo npx playwright test -c src/config/prod.config.ts",
@@ -14,8 +14,8 @@
     "prod": "npx playwright test -c src/config/prod.config.ts",
     "report_allure": "npx allure generate allure-results --clean  && npx allure open allure-report",
     "report_playwright": "npx playwright show-report",
-    "clean": "rm -rf allure-report && rm -rf allure-results && rm -rf test-results && rm -rf playwright-report && rm -rf dist",
-    "update": "npm install @playwright/test@latest && npx playwright install && echo '----------\nUPDATE THE DOCKER FILE WITH NEW VERSION:' && npx @playwright/test --version && echo ----------"
+    "clean": "bash libs/commands.sh clean",
+    "setup": "bash libs/commands.sh setup"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/Marc-AC-93/Playwright-template#readme",
   "devDependencies": {
-    "@playwright/test": "^1.37.1",
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.6.5",
     "allure-playwright": "^2.4.0"
   },
   "dependencies": {
